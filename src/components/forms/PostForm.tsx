@@ -18,7 +18,6 @@ import { PostValidation } from "@/lib/validation";
 import { Models } from "appwrite";
 import {
   useCreatePost,
-  useDeletePost,
   useUpdatePost,
 } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
@@ -35,9 +34,6 @@ const PostForm = ({ post, action }: PostFormProps) => {
 
   const { mutateAsync: updatePost, isPending: isLoadingUpdate } =
     useUpdatePost();
-
-  const { mutateAsync: deletePost, isPending: isDeletingPost } =
-    useDeletePost();
 
   const { toast } = useToast();
   const navigate = useNavigate();

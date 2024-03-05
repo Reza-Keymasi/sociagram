@@ -254,7 +254,7 @@ export async function getPostById(postId: string) {
 export async function updatePost(post: IUpdatePost) {
   const hasFileToUpdate = post.file.length > 0;
   try {
-    const image = {
+    let image = {
       imageUrl: post.imageUrl,
       imageId: post.imageId,
     };
@@ -325,6 +325,7 @@ export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
   if (pageParam) {
     queries.push(Query.cursorAfter(pageParam.toString()));
   }
+
   try {
     const posts = await databases.listDocuments(
       appwriteConfig.databaseId,
