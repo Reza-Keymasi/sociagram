@@ -23,10 +23,9 @@ export async function createUserAccount(user: INewUser) {
       imageUrl: avatarUrl,
     });
 
-    console.log(newUser);
     return newUser;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return error;
   }
 }
@@ -48,7 +47,7 @@ export async function saveUserToDB(user: {
 
     return newUser;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -57,7 +56,7 @@ export async function signInAccount(user: { email: string; password: string }) {
     const session = await account.createEmailSession(user.email, user.password);
     return session;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -76,7 +75,7 @@ export async function getCurrentUser() {
 
     return currentUser.documents[0];
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -85,7 +84,7 @@ export async function signOutAccount() {
     const session = await account.deleteSession("current");
     return session;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -129,7 +128,7 @@ export async function createPost(post: INewPost) {
 
     return newPost;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -143,7 +142,7 @@ export async function uploadFile(file: File) {
 
     return uploadedFile;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -162,7 +161,7 @@ export function getFilePreviewFn(fileId: string) {
 
     return fileUrl;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -172,7 +171,7 @@ export async function deleteFile(fileId: string) {
 
     return { tatus: "ok" };
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -201,7 +200,7 @@ export async function likePost(postId: string, likesArray: string[]) {
 
     return updatedPost;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 export async function savePost(postId: string, userId: string) {
@@ -218,7 +217,7 @@ export async function savePost(postId: string, userId: string) {
 
     return savededPost;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 export async function deleteSavedPost(savedRecordId: string) {
@@ -233,7 +232,7 @@ export async function deleteSavedPost(savedRecordId: string) {
 
     return { status: "ok" };
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -247,7 +246,7 @@ export async function getPostById(postId: string) {
 
     return post;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -299,7 +298,7 @@ export async function updatePost(post: IUpdatePost) {
 
     return updatedPost;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -315,7 +314,7 @@ export async function deletePost(postId: string, imageId: string) {
 
     return { status: "ok" };
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -337,7 +336,7 @@ export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
 
     return posts;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -353,6 +352,6 @@ export async function searchPosts(searchTerm: string) {
 
     return posts;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
